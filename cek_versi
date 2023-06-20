@@ -2,6 +2,7 @@
 
 
 # Memeriksa versi terinstall dari paket luci-app-ocgen
+echo "Checking Version.."
 installed_version=$(opkg list-installed luci-app-ocgen | awk '{print $3}')
 
 # Memeriksa versi terbaru paket luci-app-ocgen dari output opkg list
