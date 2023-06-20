@@ -4,31 +4,29 @@
 
 echo "Checking Version"
 sleep 3
-wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/v_ocgen" -O /tmp/v_ocgen
+
+# Get latest version from Github
+lates=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"tag_name": ".*"' | sed 's/"//g' | sed 's/tag_name: //g')
 
 if [ $? -eq 0 ]; then
-    chmod +x /tmp/v_ocgen
     clear
-    lates=$(grep -o 'VERSION 0.2_beta' /tmp/v_ocgen | awk -F 'VERSION ' '{print $2}' | cut -d' ' -f1 | awk 'NR==1')
-    ins=$(grep -o '0.1_beta' && opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
+    ins=$(opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
     if [[ $lates == $ins ]]; then
         clear
-        echo -e "OcGen Sudah Versi Terbaru "$ins
+        echo -e "OcGen is up to date with version "$ins
         sleep 5
-        rm /tmp/v_ocgen
         exit
     else
-        echo -e "Updating YAML Converter"
+        echo -e "Updating OcGen to version "$lates
         sleep 1
         clear
         wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 777 /sbin/update
         wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 777 /sbin/ocgen
         clear
         sleep 2
-        rm /tmp/v_ocgen
         /sbin/ocgen up
     fi 
 else
-    echo "Failed to download file"
+    echo "Failed to get latest version from Github"
     exit 1
-fi 
+fi
