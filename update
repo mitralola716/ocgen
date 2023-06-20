@@ -12,7 +12,7 @@ if [[ $lates == $ins ]]; then
     clear
     echo -e "OcGen Sudah Versi Terbaru "$ins
     sleep 5
-    rm /tmp/versi_yaml
+    rm /tmp/v_ocgen
     exit
 else
     echo -e "Updating YAML Converter"
