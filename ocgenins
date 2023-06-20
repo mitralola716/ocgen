@@ -1,13 +1,16 @@
 #!/bin/bash
-# This Script by MitraLola (http://github.com/mitralola716)
 
-{
-echo -e "Downloading binaries"
+# Menyembunyikan output dari eksekusi perintah wget
+exec 3>&1
+exec 1>/dev/null
+
+echo -e "Downloading binaries..."
 sleep 2
+
 wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 7777 /sbin/ocgen
 wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 7777 /sbin/update
-clear
-update
+
+# Mengembalikan output ke stdout
+exec 1>&3
 echo -e "Installation is completed"
 sleep 3
-}
