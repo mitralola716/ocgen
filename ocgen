@@ -16,5 +16,5 @@ up() {
 if [[ $1 == "up" ]]; then
     up # Jalankan fungsi "up" jika argumen adalah "up"
 else
-    echo "Invalid command" # Tampilkan pesan jika argumen tidak valid
+    echo "Please type Ocgen Up and Enter to update OcGen" # Tampilkan pesan jika argumen tidak valid
 fi
