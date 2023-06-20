@@ -1,16 +1,16 @@
 #!/bin/bash
-VERSION=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
+VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
 
 
 # Fungsi untuk mengupdate tools
 up() {
-    echo "Version: $VERSION"
+    echo "Version: $VERSIONS"
     echo -e "Updating Tools"
     sleep 2
     opkg remove luci-app-ocgen
     clear
     sleep 2
-    wget --no-check-certificate "https://github.com/mitralola716/ocgen/releases/download/$VERSION/luci-app-ocgen-$VERSION.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    wget --no-check-certificate "https://github.com/mitralola716/ocgen/releases/download/$VERSIONS/luci-app-ocgen-$VERSIONS.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
     cd /tmp && opkg install luci-app-ocgen*.ipk
     rm /tmp/luci-app-ocgen.ipk
     echo -e "Update Finished"
