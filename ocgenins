@@ -8,7 +8,7 @@ echo -e "Downloading binaries..."
 sleep 2
 
 wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 7777 /sbin/ocgen
-wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup" -O /sbin/update && chmod 7777 /sbin/update
+wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup" -O /sbin/ocgenup && chmod 7777 /sbin/ocgenup
 
 # Mengembalikan output ke stdout
 exec 1>&3
