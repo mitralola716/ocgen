@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
         echo -e "Updating OcGen to version "$lates
         sleep 2
         clear
-        wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 777 /sbin/update
+        wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup" -O /sbin/ocgenup && chmod 777 /sbin/ocgenup
         wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 777 /sbin/ocgen
         clear
         sleep 2
