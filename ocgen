@@ -1,6 +1,7 @@
 #!/bin/bash
 VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
-
+paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' |
+ sed 's/browser_download_url: //g'
 
 # Fungsi untuk mengupdate tools
 up() {
@@ -10,7 +11,7 @@ up() {
     opkg remove luci-app-ocgen
     clear
     sleep 2
-    wget --no-check-certificate "https://github.com/mitralola716/ocgen/releases/download/$VERSIONS/luci-app-ocgen-$VERSIONS_all.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    wget --no-check-certificate "$paket" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
     clear
     cd /tmp && opkg install luci-app-ocgen*.ipk
     clear
