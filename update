@@ -11,6 +11,10 @@ lates=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest 
 if [ $? -eq 0 ]; then
     clear
     ins=$(opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
+
+    echo "Latest version from Github is $lates"
+    echo "Installed version is $ins"
+
     if [[ $lates == $ins ]]; then
         clear
         echo -e "OcGen is up to date with version "$ins
