@@ -5,10 +5,7 @@ up() {
     echo -e "Updating Tools"
     sleep 2
     clear
-    wget --no-check-certificate "https://raw.githubusercontent.com/alkhanet26/convms/main/vmess" -O /sbin/vmess && chmod 777 /sbin/vmess
-    wget --no-check-certificate "https://raw.githubusercontent.com/alkhanet26/convms/main/ctrojan" -O /sbin/ctrojan && chmod 777 /sbin/ctrojan
-    wget --no-check-certificate "https://raw.githubusercontent.com/alkhanet26/convms/main/vless" -O /sbin/vless && chmod 777 /sbin/vless
-    wget --no-check-certificate "https://raw.githubusercontent.com/alkhanet26/convms/main/base.json" -O /usr/lib/node_modules/v2ray-tools/src/base.json && chmod 644 /usr/lib/node_modules/v2ray-tools/src/base.json
+    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/luci-app-ocgen" -O /tmp/luci-app-ocgen && chmod 777 /sbin/vmess
     clear
     echo -e "Update Finished"
     sleep 2
