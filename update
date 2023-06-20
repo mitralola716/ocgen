@@ -6,11 +6,11 @@ echo "Checking Version"
 sleep 3
 
 # Get latest version from Github
-lates=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"tag_name": ".*"' | sed 's/"//g' | sed 's/tag_name: //g' | sed 's/v//g' | sed 's/_beta//g')
+lates=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"tag_name": ".*"' | sed 's/"//g' | sed 's/tag_name: //g' | sed 's/v//g')
 
 if [ $? -eq 0 ]; then
     clear
-    ins=$(opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1' | sed 's/v//g' | sed 's/_beta//g')
+    ins=$(opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1' | sed 's/v//g')
 
     echo "Latest version from Github is $lates"
     echo "Installed version is $ins"
