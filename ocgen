@@ -11,7 +11,9 @@ up() {
     clear
     sleep 2
     wget --no-check-certificate "https://github.com/mitralola716/ocgen/releases/download/$VERSIONS/luci-app-ocgen-$VERSIONS.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    clear
     cd /tmp && opkg install luci-app-ocgen*.ipk
+    clear
     rm /tmp/luci-app-ocgen.ipk
     echo -e "Update Finished"
     sleep 2
