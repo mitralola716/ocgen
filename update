@@ -10,11 +10,10 @@ lates=$(grep -o 'VERSION 0.2_beta' /tmp/v_ocgen | awk -F 'VERSION ' '{print $2}'
 ins=$(grep -o '0.1_beta' && opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
 if [[ $lates == $ins ]]; then
     clear
-    echo -e "OcGen Sudah Versi Terbaru "$in
-    echo -e "Kembali Ke Menu Awal"
+    echo -e "OcGen Sudah Versi Terbaru "$ins
     sleep 5
     rm /tmp/versi_yaml
-    /sbin/tools
+    exit
 else
     echo -e "Updating YAML Converter"
     sleep 1
