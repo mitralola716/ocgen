@@ -3,6 +3,9 @@
 
 # Memeriksa versi terinstall dari paket luci-app-ocgen
 echo "Checking Version.."
+sleep 3
+wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/v_ocgen" -O /tmp/v_ocgen && chmod +x /tmp/v_ocgen
+clear
 installed_version=$(opkg list-installed luci-app-ocgen | awk '{print $3}')
 
 # Memeriksa versi terbaru paket luci-app-ocgen dari output opkg list
