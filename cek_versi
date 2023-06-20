@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+# Memeriksa versi terinstall dari paket luci-app-ocgen
+installed_version=$(opkg list-installed luci-app-ocgen | awk '{print $3}')
+
+# Memeriksa versi terbaru paket luci-app-ocgen dari output opkg list
+latest_version=$(opkg list | grep "^luci-app-ocgen " | awk '{print $3}')
+
+# Membandingkan versi terinstall dengan versi terbaru
+if [ "$installed_version" != "$latest_version" ]; then
+    # Jika versi terbaru tersedia, update paket
+    echo "Update package: luci-app-ocgen"
+    opkg install luci-app-ocgen
+else
+    # Jika versi terbaru tidak tersedia, tulis pesan
+    echo "Package luci-app-ocgen is up to date"
+fi
+
+# Menampilkan daftar paket yang terinstall setelah update
+echo "Installed packages:"
+opkg list-installed
