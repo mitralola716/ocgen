@@ -1,9 +1,10 @@
 #!/bin/bash
 VERSION=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
-echo "Version: $VERSION"
+
 
 # Fungsi untuk mengupdate tools
 up() {
+    echo "Version: $VERSION"
     echo -e "Updating Tools"
     sleep 2
     opkg remove luci-app-ocgen
