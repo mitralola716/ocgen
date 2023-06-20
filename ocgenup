@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script by MitraLola716 (http://github.com/mitralola716)
-# VERSION 0.2_beta
+
 
 # Memeriksa versi terinstall dari paket luci-app-ocgen
 echo "Checking Version"
