@@ -8,5 +8,4 @@ wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocge
 clear
 echo -e "Installation is completed"
 sleep 3
-sh /sbin/tools
 }
