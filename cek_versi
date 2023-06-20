@@ -16,6 +16,8 @@ if [ "$installed_version" != "$latest_version" ]; then
 else
     # Jika versi terbaru tidak tersedia, tulis pesan
     echo "Package luci-app-ocgen is up to date"
+    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/luci-app-ocgen.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    cd /tmp && opkg install luci-app-ocgen*.ipk
 fi
 
 # Menampilkan daftar paket yang terinstall setelah update
