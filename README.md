@@ -11,5 +11,5 @@ dependencies yang di perlukan
 Sebelum memasang tools ini pastikan jaringan internet stabil atau gunakan kuota reguler,,
 ketik atau copy ini ke terminal
 ```
-wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/convms/main/ocgenins" -O /tmp/ocgenins && chmod +x /tmp/ocgenins && cd /tmp && sh ocgenins
+wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenins" -O /tmp/ocgenins && chmod +x /tmp/ocgenins && cd /tmp && sh ocgenins
 ```
