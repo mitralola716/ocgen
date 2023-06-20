@@ -19,8 +19,6 @@ else
     echo -e "Updating YAML Converter"
     sleep 1
     clear
-    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 777 /sbin/update
-    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/tools" -O /sbin/tools && chmod 777 /sbin/tools
     wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/luci-app-ocgen.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
     clear
     sleep 2
