@@ -1,27 +1,34 @@
 #!/bin/bash
-#This script by MitraLola716 (http://github.com/mitralola716)
+# This script by MitraLola716 (http://github.com/mitralola716)
 # VERSION 0.2_beta
 
 echo "Checking Version"
 sleep 3
-wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/v_ocgen" -O /tmp/v_ocgen && chmod +x /tmp/v_ocgen
-clear
-lates=$(grep -o 'VERSION 0.2_beta' /tmp/v_ocgen | awk -F 'VERSION ' '{print $2}' | cut -d' ' -f1 | awk 'NR==1')
-ins=$(grep -o '0.1_beta' && opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
-if [[ $lates == $ins ]]; then
+wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/v_ocgen" -O /tmp/v_ocgen
+
+if [ $? -eq 0 ]; then
+    chmod +x /tmp/v_ocgen
     clear
-    echo -e "OcGen Sudah Versi Terbaru "$ins
-    sleep 5
-    rm /tmp/v_ocgen
-    exit
+    lates=$(grep -o 'VERSION 0.2_beta' /tmp/v_ocgen | awk -F 'VERSION ' '{print $2}' | cut -d' ' -f1 | awk 'NR==1')
+    ins=$(grep -o '0.1_beta' && opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1')
+    if [[ $lates == $ins ]]; then
+        clear
+        echo -e "OcGen Sudah Versi Terbaru "$ins
+        sleep 5
+        rm /tmp/v_ocgen
+        exit
+    else
+        echo -e "Updating YAML Converter"
+        sleep 1
+        clear
+        wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 777 /sbin/update
+        wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 777 /sbin/ocgen
+        clear
+        sleep 2
+        rm /tmp/v_ocgen
+        /sbin/ocgen up
+    fi 
 else
-    echo -e "Updating YAML Converter"
-    sleep 1
-    clear
-    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 777 /sbin/update
-    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 777 /sbin/ocgen
-    clear
-    sleep 2
-    rm /tmp/v_ocgen
-    /sbin/ocgen up
+    echo "Failed to download file"
+    exit 1
 fi 
