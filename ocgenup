@@ -17,6 +17,7 @@ if [ $? -eq 0 ]; then
     echo "Latest version from Github is $lates"
     echo "Installed version is $ins"
 
+# Membandingkan versi terinstall dengan versi terbaru
     if [[ $lates == $ins || $(echo "$lates $ins" | tr " " "\n" | sort -V | tail -n 1) == $ins ]]; then
         clear
         echo -e "OcGen is up to date with version "$ins
