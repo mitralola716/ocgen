@@ -12,5 +12,6 @@ wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocge
 
 # Mengembalikan output ke stdout
 exec 1>&3
+ocgenup
 echo -e "Installation is completed"
 sleep 3
