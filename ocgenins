@@ -6,7 +6,7 @@ echo -e "Downloading binaries"
 sleep 2
 wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 7777 /sbin/ocgen
 wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/update" -O /sbin/update && chmod 7777 /sbin/update
-sh updaye
+sh update
 clear
 echo -e "Installation is completed"
 sleep 3
