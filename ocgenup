@@ -3,8 +3,8 @@
 
 # Mengecek apakah paket luci-app-tinyfm sudah terinstall atau belum
 if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
-    echo "Paket luci-app-tinyfm belum terinstall"
-    echo "Menginstall Paket luci-app-tinyfm"
+    echo "Paket pendukung belum terinstall"
+    echo "Menginstall paket pendukung.."
     echo "Mohon tunggu.."
     # Update repository dan install paket luci-app-tinyfm
     opkg update >/dev/null 2>&1
@@ -13,6 +13,7 @@ if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
     echo "Paket luci-app-tinyfm berhasil diinstall"
 else
     echo "Paket luci-app-tinyfm sudah terinstall"
+    clear
 fi
 
 # Memeriksa versi terinstall dari paket luci-app-ocgen
