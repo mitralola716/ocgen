@@ -1,19 +1,6 @@
 #!/bin/bash
 # This script by MitraLola716 (http://github.com/mitralola716)
 
-# Mengecek apakah paket luci-app-tinyfm sudah terinstall atau belum
-if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
-    echo "Paket luci-app-tinyfm belum terinstall"
-
-    # Update repository dan install paket luci-app-tinyfm
-    opkg update >/dev/null 2>&1
-    opkg install luci-app-tinyfm >/dev/null 2>&1
-
-    echo "Paket luci-app-tinyfm berhasil diinstall"
-else
-    echo "Paket luci-app-tinyfm sudah terinstall"
-fi
-
 # Menginisialisasi Versi Paket
 VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
 paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
