@@ -7,7 +7,7 @@ Tools ini berfungsi sebagai converter link encode ``vmess-ws`` ``trojan-ws`` ``v
 dependencies yang di perlukan
 - luci-app-tinyfm
 
-# INSTALASI OcGen YAML Converter
+# INSTALASI OcGen YAML Generator
 Sebelum memasang tools ini pastikan jaringan internet stabil atau gunakan kuota reguler,,
 ketik atau copy ini ke terminal
 ```
