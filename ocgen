@@ -2,7 +2,7 @@
 # This script by MitraLola716 (http://github.com/mitralola716)
 
 # Check if luci-app-tinyfm package already exists
-if ! opkg list-installed luci-app-tinyfm > /dev/null 2>&1; then
+if ! opkg list-installed luci-app-tinyfm | awk '{print $3}' > /dev/null 2>&1; then
     # Install luci-app-tinyfm if not already installed
     clear
     echo -e "\e[36;3mInstalling the required packages..\e[0m" 
