@@ -1,6 +1,20 @@
 #!/bin/bash
 # This script by MitraLola716 (http://github.com/mitralola716)
 
+# Check if luci-app-tinyfm package already exists
+if ! opkg list-installed luci-app-tinyfm > /dev/null 2>&1; then
+    # Install luci-app-tinyfm if not already installed
+    clear
+    echo -e "\e[36;3mInstalling the required packages..\e[0m" 
+    opkg update > /dev/null 2>&1 && opkg install luci-app-tinyfm > /dev/null 2>&1
+    clear
+
+    # Display notice that luci-app-tinyfm has been installed
+    echo -e "\e[36;3mDependies packages has been installed.\e[0m" 
+    sleep 5
+    clear
+fi
+
 # Menginisialisasi Versi Paket
 VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
 paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
@@ -18,7 +32,7 @@ up() {
     clear
     cd /tmp && opkg install luci-app-ocgen*.ipk
     clear
-    rm /tmp/luci-app-ocgen.ipk
+    rm /tmp/luci-app-ocgen*.ipk
     echo -e "Update Finished"
     sleep 2
 }
