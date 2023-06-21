@@ -14,7 +14,7 @@ up() {
     opkg remove luci-app-ocgen
     clear
     sleep 2
-    wget --no-check-certificate "$paket" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    wget --no-check-certificate -q "$paket" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
     clear
     cd /tmp && opkg install luci-app-ocgen*.ipk
     clear
