@@ -6,6 +6,7 @@ if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
     echo "Paket pendukung belum terinstall"
     echo "Menginstall paket pendukung.."
     echo "Mohon tunggu.."
+    clear
     # Update repository dan install paket luci-app-tinyfm
     opkg update >/dev/null 2>&1
     opkg install luci-app-tinyfm >/dev/null 2>&1
