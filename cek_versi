@@ -1,0 +1,27 @@
+#!/bin/bash
+# This script by MitraLola716 (http://github.com/mitralola716)
+
+# Memeriksa versi terinstall dari paket luci-app-ocgen
+echo "Checking Version.."
+sleep 3
+wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/v_ocgen" -O /tmp/v_ocgen && chmod +x /tmp/v_ocgen
+clear
+installed_version=$(opkg list-installed luci-app-ocgen | awk '{print $3}')
+
+# Memeriksa versi terbaru paket luci-app-ocgen dari output opkg list
+latest_version=$(opkg list | grep "^luci-app-ocgen " | awk '{print $3}')
+
+# Membandingkan versi terinstall dengan versi terbaru
+if [ "$installed_version" != "$latest_version" ]; then
+    # Jika versi terbaru tersedia, update paket
+    echo "Update package: luci-app-ocgen"
+    wget --no-check-certificate "https://raw.githubusercontent.com/mitralola716/ocgen/main/luci-app-ocgen.ipk" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk
+    cd /tmp && opkg install luci-app-ocgen*.ipk
+else
+    # Jika versi terbaru tidak tersedia, tulis pesan
+    echo "Package luci-app-ocgen is up to date"
+fi
+
+# Menampilkan daftar paket yang terinstall setelah update
+echo "Installed packages:"
+opkg list-installed
