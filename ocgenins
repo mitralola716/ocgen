@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script by MitraLola716 (http://github.com/mitralola716)
 
 # Menyembunyikan output dari eksekusi perintah wget
 exec 3>&1
