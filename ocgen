@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script by MitraLola716 (http://github.com/mitralola716)
+
 VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
 paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
 
