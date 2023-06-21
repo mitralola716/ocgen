@@ -4,7 +4,7 @@
 
 Tools ini berfungsi sebagai converter link encode ``vmess-ws`` ``trojan-ws`` ``vless-ws`` menjadi format .yaml untuk config Openclash.
 
-Dependencies atau paket lain yang di perlukan
+Dependencies atau paket lain yang di perlukan 
 - luci-app-tinyfm
 
 # INSTALASI OcGen YAML Generator
