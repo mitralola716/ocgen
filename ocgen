@@ -1,18 +1,17 @@
 #!/bin/bash
 # This script by MitraLola716 (http://github.com/mitralola716)
 
-# Check if luci-app-tinyfm package already exists
-if ! opkg list-installed luci-app-tinyfm | awk '{print $3}' > /dev/null 2>&1; then
-    # Install luci-app-tinyfm if not already installed
-    clear
-    echo -e "\e[36;3mInstalling the required packages..\e[0m" 
-    opkg update > /dev/null 2>&1 && opkg install luci-app-tinyfm > /dev/null 2>&1
-    clear
+# Mengecek apakah paket luci-app-tinyfm sudah terinstall atau belum
+if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
+    echo "Paket luci-app-tinyfm belum terinstall"
 
-    # Display notice that luci-app-tinyfm has been installed
-    echo -e "\e[36;3mDependies packages has been installed.\e[0m" 
-    sleep 5
-    clear
+    # Update repository dan install paket luci-app-tinyfm
+    opkg update >/dev/null 2>&1
+    opkg install luci-app-tinyfm >/dev/null 2>&1
+
+    echo "Paket luci-app-tinyfm berhasil diinstall"
+else
+    echo "Paket luci-app-tinyfm sudah terinstall"
 fi
 
 # Menginisialisasi Versi Paket
