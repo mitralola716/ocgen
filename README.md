@@ -1,6 +1,6 @@
 # OcGen YAML Generator
 
-**Openclash YAML Converter Webui OpenWRT (OcGen WebUI version)**
+**Openclash YAML Converter Webui OpenWRT (OcGen with PHP WebUI version)**
 
 Tools ini berfungsi sebagai converter link encode ``vmess-ws`` ``trojan-ws`` ``vless-ws`` menjadi format .yaml untuk config Openclash.
 
@@ -36,13 +36,6 @@ Dapat diakses melaui :
    http://192.168.1.1/ocgen
 
 --------
+<img src="https://user-images.githubusercontent.com/126588109/247435302-4fa0cd37-1a18-4073-b4b3-e03415af0130.png" width="45%"> <img src="https://user-images.githubusercontent.com/126588109/247431711-bf8f8d78-5bcb-47c4-8b3a-9fdae7b9a089.png" width="45%">
 
-![1](https://github.com/mitralola716/ocgen/assets/126588109/4fa0cd37-1a18-4073-b4b3-e03415af0130)
-
-
-
-![2](https://github.com/mitralola716/ocgen/assets/126588109/bf8f8d78-5bcb-47c4-8b3a-9fdae7b9a089)
-
-![3](https://github.com/mitralola716/ocgen/assets/126588109/4207ce76-8179-4f83-af53-d3d7897c831c)
-
-![4](https://github.com/mitralola716/ocgen/assets/126588109/64bb5c99-777d-433a-b3a1-2f2c052a5afd)
+<img src="https://user-images.githubusercontent.com/126588109/247445708-4207ce76-8179-4f83-af53-d3d7897c831c.png" width="45%"> <img src="https://user-images.githubusercontent.com/126588109/247445756-64bb5c99-777d-433a-b3a1-2f2c052a5afd.png" width="45%">
