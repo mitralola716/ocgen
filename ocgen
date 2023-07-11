@@ -1,0 +1,38 @@
+#!/bin/bash
+# This script by MitraLola716 (http://github.com/mitralola716)
+
+# Menginisialisasi Versi Paket
+VERSIONS=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | jq -r '.tag_name')
+paket=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"browser_download_url": ".*"' | sed 's/"//g' | sed 's/browser_download_url: //g')
+
+
+# Fungsi untuk mengupdate tools
+up() {
+    echo "New Version: $VERSIONS"
+    echo -e "Updating Tools"
+    sleep 2
+    opkg remove luci-app-ocgen  >/dev/null 2>&1
+    clear
+    sleep 2
+    echo "Please wait.."
+    wget --no-check-certificate -q "$paket" -O /tmp/luci-app-ocgen.ipk && chmod 777 /tmp/luci-app-ocgen.ipk  >/dev/null 2>&1
+    clear
+    cd /tmp && opkg install luci-app-ocgen*.ipk  >/dev/null 2>&1
+    echo "Installing..."
+    sleep 2
+    clear
+    rm -rf /tmp/luci-app*.ipk && rm -rf /tmp/luci-indexcache* /tmp/luci-modulecache* >/dev/null 2>&1
+    /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
+    echo "Please wait..."
+    sleep 2
+    clear
+    echo -e "Update Finished"
+    sleep 2
+}
+
+# Pengecekan argumen yang dimasukkan oleh pengguna
+if [[ $1 == "up" ]]; then
+    up # Jalankan fungsi "up" jika argumen adalah "up"
+else
+    echo "Please type "ocgenup" and Enter to update OcGen" # Tampilkan pesan jika argumen tidak valid
+fi

@@ -1,0 +1,64 @@
+#!/bin/bash
+# This script by MitraLola716 (http://github.com/mitralola716)
+
+# Mengecek apakah paket luci-app-tinyfm sudah terinstall atau belum
+if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
+    echo "Paket pendukung belum terinstall"
+    echo "Menginstall paket pendukung.."
+    echo "Mohon tunggu.."
+    sleep 3
+    clear
+    echo "Sedang menginstall.."
+    # Update repository dan install paket luci-app-tinyfm
+    opkg update >/dev/null 2>&1
+    echo "Sedang menginstall.."
+    sleep 2
+    opkg install luci-app-tinyfm >/dev/null 2>&1
+    
+    echo "Paket luci-app-tinyfm berhasil diinstall"
+    clear
+else
+    echo "Paket luci-app-tinyfm sudah terinstall"
+    clear
+fi
+
+# Memeriksa versi terinstall dari paket luci-app-ocgen
+echo "Checking Version"
+echo "Please wait.."
+sleep 3
+# Get latest version from Github
+lates=$(curl -s https://api.github.com/repos/mitralola716/ocgen/releases/latest | grep -o '"tag_name": ".*"' | sed 's/"//g' | sed 's/tag_name: //g' | sed 's/v//g')
+
+# Memeriksa versi terbaru paket luci-app-ocgen dari output opkg list
+if [ $? -eq 0 ]; then
+    clear
+    ins=$(opkg list-installed luci-app-ocgen | awk '{print $3}' | cut -d' ' -f1 | awk 'NR==1' | sed 's/v//g')
+
+    echo "Latest version from Github is $lates"
+    echo "Latest installed version is $ins"
+    sleep 2
+    clear
+# Membandingkan versi terinstall dengan versi terbaru
+    if [[ $lates == $ins || $(echo "$lates $ins" | tr " " "\n" | sort -V | tail -n 1) == $ins ]]; then
+        clear
+        echo -e "OcGen is up to date with lates version "$ins
+        sleep 5
+        exit
+    else    
+# Jika versi terbaru tersedia, update paket
+        echo -e "Updating OcGen to version "$lates
+        echo "Please wait.."
+        sleep 2
+        clear
+        echo -e "Installing..."
+        wget --no-check-certificate -q "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgenup" -O /sbin/ocgenup && chmod 777 /sbin/ocgenup
+        wget --no-check-certificate -q "https://raw.githubusercontent.com/mitralola716/ocgen/main/ocgen" -O /sbin/ocgen && chmod 777 /sbin/ocgen
+        clear
+        sleep 2
+        /sbin/ocgen up
+    fi 
+else
+    echo "Failed to get latest version from Github."
+    echo "Please check the internet connection."
+    exit 1
+fi
