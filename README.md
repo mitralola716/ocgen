@@ -22,6 +22,11 @@ Ketik di Terminal
 ```
 ocgenup
 ```
+# Info Login
+```
+Username : admin
+Password : ocgen
+```
 
 # User Interface
 
