@@ -3,7 +3,7 @@
 
 **Openclash YAML Converter Webui OpenWRT (OcGen with PHP WebUI version)**
 
-Tools ini berfungsi sebagai converter link encode ``vmess-ws`` ``trojan-ws`` ``vless-ws`` menjadi format .yaml untuk config Openclash.
+Tools ini berfungsi sebagai converter link encode ``vmess-ws`` ``trojan-ws`` ``vless-ws`` dan ``shadowsock-ss`` menjadi format .yaml untuk config Openclash.
 
 Dependencies atau paket lain yang di perlukan 
 - luci-app-tinyfm
