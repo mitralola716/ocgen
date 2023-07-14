@@ -1,6 +1,7 @@
 {
-"system": {
-"username": "admin",
-"password": "ocgen"
-}
+    "system": {
+        "username": "admin",
+        "password": "ocgen",
+        "theme": "light"
+    }
 }
