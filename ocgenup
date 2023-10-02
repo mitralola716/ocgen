@@ -14,7 +14,8 @@ if [ -z "$(opkg list-installed | grep luci-app-tinyfm)" ]; then
     echo "Sedang menginstall.."
     sleep 2
     opkg install luci-app-tinyfm >/dev/null 2>&1
-    
+    echo "Sedang menginstall.."
+    sleep 2
     echo "Paket luci-app-tinyfm berhasil diinstall"
     clear
 else
